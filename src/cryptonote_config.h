@@ -165,47 +165,48 @@ namespace config
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
   std::string const P2P_REMOTE_DEBUG_TRUSTED_PUB_KEY = "0000000000000000000000000000000000000000000000000000000000000000";
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0xe2386;
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0xe6606;
-  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x146806;
-  uint16_t const P2P_DEFAULT_PORT = 6869;
-  uint16_t const RPC_DEFAULT_PORT = 6870;
-  uint16_t const ZMQ_RPC_DEFAULT_PORT = 6871;
+  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x197220; // Turd
+  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x1bf220; // Turi
+  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x187220; // Turb
+  uint16_t const P2P_DEFAULT_PORT = 12210;
+  uint16_t const RPC_DEFAULT_PORT = 12211;
+  uint16_t const ZMQ_RPC_DEFAULT_PORT = 12213;
+  
   boost::uuids::uuid const NETWORK_ID = { {
-      0x12 ,0x99, 0xF1, 0x22 , 0x61, 0x04 , 0xAB, 0x31, 0x48, 0x9E, 0xD4, 0x82, 0x16, 0x4B, 0xA1, 0x47
-    } }; // Bender's nightmare
+            0xcd, 0xac, 0x50, 0x2e, 0xb3, 0x74, 0x8f, 0xf2, 0x0f, 0xb7, 0x72, 0x18, 0x0f, 0x73, 0x24, 0x13
+    } }; // Turd's nightmare
   std::string const GENESIS_TX = "013c01ff0001ffffffffffff0302a0cb993b480bd606568fdf8a0d55b183cdadd2a318d80a4d4e64af6b031d9ea321017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1";
   //013c01ff0001ffffffffffff0302a0cb993b480bd606568fdf8a0d55b183cdadd2a318d80a4d4e64af6b031d9ea321017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1
-  uint32_t const GENESIS_NONCE = 10000;
+  uint32_t const GENESIS_NONCE = 9876;
 
   namespace testnet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x27e386;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x62886;
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0xaa886;
-    uint16_t const P2P_DEFAULT_PORT = 7869;
-    uint16_t const RPC_DEFAULT_PORT = 7870;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 7871;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x3beca0; // TuTd
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x3eaca0; // TuTi
+    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x3aeca0; // TuTb
+    uint16_t const P2P_DEFAULT_PORT = 22210;
+    uint16_t const RPC_DEFAULT_PORT = 22211;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 22212;
     boost::uuids::uuid const NETWORK_ID = { {
       0x12 ,0x99, 0xF1, 0x22 , 0x61, 0x04 , 0xAB, 0x31, 0x48, 0x9E, 0xD4, 0x82, 0x16, 0x4B, 0xA1, 0x48
       } }; // Bender's daydream
     std::string const GENESIS_TX = "013c01ff0001ffffffffffff0302a0cb993b480bd606568fdf8a0d55b183cdadd2a318d80a4d4e64af6b031d9ea321017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1";
-    uint32_t const GENESIS_NONCE = 10001;
+    uint32_t const GENESIS_NONCE = 9875;
   }
 
   namespace stagenet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x276386;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x296806;
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x2de806;
-    uint16_t const P2P_DEFAULT_PORT = 8869;
-    uint16_t const RPC_DEFAULT_PORT = 8870;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 8871;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x1eaca0; // TuSd
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x216ca0; // TuSi
+    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x1daca0; // TuSb
+    uint16_t const P2P_DEFAULT_PORT = 32210;
+    uint16_t const RPC_DEFAULT_PORT = 32211;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 32212;
     boost::uuids::uuid const NETWORK_ID = { {
       0x12 ,0x99, 0xF1, 0x22 , 0x61, 0x04 , 0xAB, 0x31, 0x48, 0x9E, 0xD4, 0x82, 0x16, 0x4B, 0xA1, 0x49
       } }; // Bender's daydream
     std::string const GENESIS_TX = "013c01ff0001ffffffffffff0302a0cb993b480bd606568fdf8a0d55b183cdadd2a318d80a4d4e64af6b031d9ea321017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1";
-    uint32_t const GENESIS_NONCE = 10002;
+    uint32_t const GENESIS_NONCE = 9874;
   }
 }
 
