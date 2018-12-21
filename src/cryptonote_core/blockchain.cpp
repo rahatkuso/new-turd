@@ -87,34 +87,36 @@ static const struct {
   uint8_t threshold;
   time_t time;
 } mainnet_hard_forks[] = {
+//  { 1, 1, 0, 1545345340 }
+  { 0, 0, 0, 0 }
   // version 1 from the start of the blockchain
-  { 1, 1, 0, 1341378000 },
+  //{ 1, 1, 0, 1341378000 },
 
   // version 2 starts from block 20, which is on or around the 20th of March, 2016. Fork time finalised on 2015-09-20. No fork voting occurs for the v2 fork.
-  { 2, 20, 0, 1442763710 },
+  //{ 2, 20, 0, 1442763710 },
 
   // version 3 starts from block 40, which is on or around the 24th of September, 2016. Fork time finalised on 2016-03-21.
-  { 3, 40, 0, 1458558528 },
+  //{ 3, 40, 0, 1458558528 },
   
   // version 4 starts from block 60, which is on or around the 5th of January, 2017. Fork time finalised on 2016-09-18.
-  { 4, 60, 0, 1483574400 },
+  //{ 4, 60, 0, 1483574400 },
   
   // version 5 starts from block 80, which is on or around the 15th of April, 2017. Fork time finalised on 2017-03-14.
-  { 5, 80, 0, 1489520158 },  
+  //{ 5, 80, 0, 1489520158 },  
 
   // version 6 starts from block 100, which is on or around the 16th of September, 2017. Fork time finalised on 2017-08-18.
-  { 6, 100, 0, 1503046577 },
+  //{ 6, 100, 0, 1503046577 },
 
   // version 7 starts from block 1546000, which is on or around the 6th of April, 2018. Fork time finalised on 2018-03-17.
-  { 7, 120, 0, 1521303150 },
+  //{ 7, 120, 0, 1521303150 },
 
   // version 8 starts from block 1685555, which is on or around the 18th of October, 2018. Fork time finalised on 2018-09-02.
-  { 8, 72875, 0, 1541425423 },
+  //{ 8, 72875, 0, 1541425423 },
 
   // version 9 starts from block 1686275, which is on or around the 19th of October, 2018. Fork time finalised on 2018-09-02.
-  { 9, 73595, 0, 1541511823 },
+  //{ 9, 73595, 0, 1541511823 },
   // version 10 starts from block 77850
-  { 10, 77850, 0, 1542911469 },
+  //{ 10, 77850, 0, 1542911469 },
 };
 static const uint64_t mainnet_hard_fork_version_1_till = 19;
 

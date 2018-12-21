@@ -100,6 +100,10 @@ function (monero_add_library_with_deps)
   if (MONERO_ADD_LIBRARY_DEPENDS)
     add_dependencies(${objlib} ${MONERO_ADD_LIBRARY_DEPENDS})
   endif()
+
+  # set this to 0 if per-block checkpoint needs to be disabled
+  set(PER_BLOCK_CHECKPOINT 0)
+
   set_property(TARGET "${MONERO_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
   target_compile_definitions(${objlib}
     PRIVATE $<TARGET_PROPERTY:${MONERO_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)

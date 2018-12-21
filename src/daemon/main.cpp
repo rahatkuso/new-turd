@@ -56,6 +56,65 @@
 namespace po = boost::program_options;
 namespace bf = boost::filesystem;
 
+namespace {
+
+  const command_line::arg_descriptor<bool>        arg_print_genesis_tx = { "print-genesis-tx", "Prints genesis' block tx hex to insert it to config and exits" };
+
+  // Helper function to generate genesis transaction
+  void print_genesis_tx_hex(uint8_t nettype) {
+
+    using namespace cryptonote;
+
+    account_base miner_acc1;
+    miner_acc1.generate();
+
+    std::cout << "Gennerating miner wallet..." << std::endl;
+    std::cout << "Miner account address:" << std::endl;
+    std::cout << cryptonote::get_account_address_as_str((network_type)nettype, false, miner_acc1.get_keys().m_account_address);
+    std::cout << std::endl << "Miner spend secret key:"  << std::endl;
+    epee::to_hex::formatted(std::cout, epee::as_byte_span(miner_acc1.get_keys().m_spend_secret_key));
+    std::cout << std::endl << "Miner view secret key:" << std::endl;
+    epee::to_hex::formatted(std::cout, epee::as_byte_span(miner_acc1.get_keys().m_view_secret_key));
+    std::cout << std::endl << std::endl;
+
+
+    auto t = std::time(nullptr);
+    auto tm = *std::localtime(&t);
+    std::stringstream key_fine_name_ss;
+    key_fine_name_ss << "./miner01_keys" << std::put_time(&tm, "%Y%m%d%H%M%S") << ".dat";
+    std::string key_file_name = key_fine_name_ss.str();
+    std::ofstream miner_key_file;
+    miner_key_file.open (key_file_name);
+    miner_key_file << "Miner account address:" << std::endl;
+    miner_key_file << cryptonote::get_account_address_as_str((network_type)nettype, false, miner_acc1.get_keys().m_account_address);
+    miner_key_file << std::endl<< "Miner spend secret key:"  << std::endl;
+    epee::to_hex::formatted(miner_key_file, epee::as_byte_span(miner_acc1.get_keys().m_spend_secret_key));
+    miner_key_file << std::endl << "Miner view secret key:" << std::endl;
+    epee::to_hex::formatted(miner_key_file, epee::as_byte_span(miner_acc1.get_keys().m_view_secret_key));
+    miner_key_file << std::endl << std::endl;
+    miner_key_file.close();
+
+
+    //Create file with miner keys information
+    cryptonote::transaction tx_genesis;
+    cryptonote::construct_miner_tx(0, 0, 0, 10, 0, miner_acc1.get_keys().m_account_address, tx_genesis);
+
+    std::cout << "Object:" << std::endl;
+    std::cout << obj_to_json_str(tx_genesis) << std::endl << std::endl;
+
+    //Prepare genesis_tx
+    std::stringstream ss;
+    binary_archive<true> ba(ss);
+    ::serialization::serialize(ba, tx_genesis);
+    std::string tx_hex = ss.str();
+    std::cout << "Insert this line into your coin configuration file: " << std::endl;
+    std::cout << "std::string const GENESIS_TX = \"" << string_tools::buff_to_hex_nodelimer(tx_hex) << "\";" << std::endl;
+
+    return;
+  }
+
+}
+
 int main(int argc, char const * argv[])
 {
   try {
@@ -79,6 +138,7 @@ int main(int argc, char const * argv[])
       command_line::add_arg(visible_options, command_line::arg_version);
       command_line::add_arg(visible_options, daemon_args::arg_os_version);
       command_line::add_arg(visible_options, daemon_args::arg_config_file);
+      command_line::add_arg(visible_options, arg_print_genesis_tx);
 
       // Settings
       command_line::add_arg(core_settings, daemon_args::arg_log_file);
@@ -171,6 +231,17 @@ int main(int argc, char const * argv[])
     }
 
     std::string db_type = command_line::get_arg(vm, cryptonote::arg_db_type);
+
+    if (command_line::get_arg(vm, arg_print_genesis_tx)) {
+      int nettype = 0; //mainnet
+      if (testnet)
+        nettype = 1;
+      else if (stagenet)
+        nettype = 2;
+
+      print_genesis_tx_hex(nettype);
+      return 0;
+    }
 
     // verify that blockchaindb type is valid
     if(!cryptonote::blockchain_valid_db_type(db_type))
