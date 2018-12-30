@@ -1,5 +1,5 @@
 ---
-name: "monero-osx-0.14"
+name: "turd-osx-0.14"
 enable_cache: true
 suites:
 - "bionic"
@@ -28,8 +28,8 @@ packages:
 - "python-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/pyrex-coin/Pyrex.git"
-  "dir": "Pyrex"
+- "url": "https://github.com/turd-coin/turd.git"
+  "dir": "turd"
 files:
 - "MacOSX10.11.sdk.tar.gz"
 script: |
