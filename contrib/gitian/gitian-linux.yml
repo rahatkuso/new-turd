@@ -1,5 +1,5 @@
 ---
-name: "monero-linux-0.14"
+name: "turd-linux-0.14"
 enable_cache: true
 suites:
 - "bionic"
@@ -43,8 +43,8 @@ packages:
 - "libprotobuf-dev"
 - "python3-zmq"
 remotes:
-- "url": "https://github.com/pyrex-coin/Pyrex.git"
-  "dir": "Pyrex"
+- "url": "https://github.com/turd-coin/turd.git"
+  "dir": "turd"
 files: []
 script: |
 
