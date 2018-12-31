@@ -1,4 +1,4 @@
-# Pyrexcoin Blockchain Utilities
+# Turd Blockchain Utilities
 
 Copyright (c) 2014-2018, The Monero Project
 
@@ -12,16 +12,16 @@ See also each utility's "--help" option.
 
 ### Export an existing blockchain database
 
-`$ pyrexcoin-blockchain-export`
+`$ turd-blockchain-export`
 
 This loads the existing blockchain and exports it to `$MONERO_DATA_DIR/export/blockchain.raw`
 
 ### Import the exported file
 
-`$ pyrexcoin-blockchain-import`
+`$ turd-blockchain-import`
 
 This imports blocks from `$MONERO_DATA_DIR/export/blockchain.raw` (exported using the
-`pyrexcoin-blockchain-export` tool as described above) into the current database.
+`turd-blockchain-export` tool as described above) into the current database.
 
 Defaults: `--batch on`, `--batch size 20000`, `--verify on`
 
@@ -30,14 +30,14 @@ Batch size refers to number of blocks and can be adjusted for performance based 
 Verification should only be turned off if importing from a trusted blockchain.
 
 If you encounter an error like "resizing not supported in batch mode", you can just re-run
-the `pyrexcoin-blockchain-import` command again, and it will restart from where it left off.
+the `turd-blockchain-import` command again, and it will restart from where it left off.
 
 ```bash
 ## use default settings to import blockchain.raw into database
-$ pyrexcoin-blockchain-import
+$ turd-blockchain-import
 
 ## fast import with large batch size, database mode "fastest", verification off
-$ pyrexcoin-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
+$ turd-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
 
 ```
 
@@ -80,9 +80,9 @@ LMDB flags (more than one may be specified):
 ## Examples:
 
 ```
-$ pyrexcoin-blockchain-import --database lmdb#fastest
+$ turd-blockchain-import --database lmdb#fastest
 
-$ pyrexcoin-blockchain-import --database lmdb#nosync
+$ turd-blockchain-import --database lmdb#nosync
 
-$ pyrexcoin-blockchain-import --database lmdb#nosync,nometasync
+$ turd-blockchain-import --database lmdb#nosync,nometasync
 ```
