@@ -11946,8 +11946,7 @@ uint64_t wallet2::get_segregation_fork_height() const
   {
     // All four MoneroPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = {
-        "segheights.pyrexpulse.com",
-        "segheights.pyrexcoin.com",
+        "segheights.turdcurrency.com",
     };
 
     const uint64_t current_height = get_blockchain_current_height();
