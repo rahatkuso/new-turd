@@ -40,6 +40,7 @@
 #include <memory.h>
 
 #include "memwipe.h"
+#include "mlocker.h"
 #include "hash.h"
 
 namespace crypto {
