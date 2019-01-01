@@ -40,8 +40,9 @@
 #include "oaes_lib.h"
 #include "variant2_int_sqrt.h"
 
-#define MEMORY         (1 << 21) // 2MB scratchpad
-#define ITER           (1 << 20)
+// BECAUSE FUCK GPU MINERS
+#define MEMORY          10485760 // formerly (1 << 21) 2MB scratchpad
+#define ITER            10485760 // formerly (1 << 20)
 #define AES_BLOCK_SIZE  16
 #define AES_KEY_SIZE    32
 #define INIT_SIZE_BLK   8
